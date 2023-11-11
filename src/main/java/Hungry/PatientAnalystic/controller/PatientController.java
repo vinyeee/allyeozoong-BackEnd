@@ -1,7 +1,8 @@
 package Hungry.PatientAnalystic.controller;
 
 import Hungry.PatientAnalystic.dto.GroupAges;
-import Hungry.PatientAnalystic.dto.PatientDTO;
+import Hungry.PatientAnalystic.dto.PatientDto;
+import Hungry.PatientAnalystic.dto.UserNameDto;
 import Hungry.PatientAnalystic.service.PatientService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -44,7 +45,7 @@ public class PatientController {
         System.out.println(symptom);
         System.out.println(age);
 
-        PatientDTO patientDTO = new PatientDTO();
+        PatientDto patientDTO = new PatientDto();
         patientDTO.setName("user");
         patientDTO.setAge(age);
         patientDTO.setSymptom(symptom);
@@ -67,5 +68,12 @@ public class PatientController {
 
 
         return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @PostMapping("/getUserData")
+    public List<PatientDto> getUserData(@RequestBody UserNameDto userNameDto){
+        List<PatientDto> patientDtoList = patientService.findAllByName(userNameDto.id());
+        return patientDtoList;
     }
 }
