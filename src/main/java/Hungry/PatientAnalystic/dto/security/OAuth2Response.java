@@ -5,7 +5,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
-public record KakaoOAuth2Response(
+public record OAuth2Response(
         Long id,
         LocalDateTime connectedAt,
         Map<String, Object> properties,
@@ -41,8 +41,8 @@ public record KakaoOAuth2Response(
         public String nickname() { return this.profile().nickname(); }
     }
 
-    public static KakaoOAuth2Response from(Map<String, Object> attributes) {
-        return new KakaoOAuth2Response(
+    public static OAuth2Response from(Map<String, Object> attributes) {
+        return new OAuth2Response(
                 Long.valueOf(String.valueOf(attributes.get("id"))),
                 LocalDateTime.parse(
                         String.valueOf(attributes.get("connected_at")),
