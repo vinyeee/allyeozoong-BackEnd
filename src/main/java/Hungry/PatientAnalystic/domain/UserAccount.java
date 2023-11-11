@@ -1,10 +1,10 @@
-package com.fastcampus.projectboard.domain;
+package Hungry.PatientAnalystic.domain;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
@@ -24,17 +24,17 @@ public class UserAccount extends AuditingFields {
 
     @Setter @Column(length = 100) private String email;
     @Setter @Column(length = 100) private String nickname;
-    @Setter private String memo;
+    @Setter private String age;
 
 
     protected UserAccount() {}
 
-    private UserAccount(String userId, String userPassword, String email, String nickname, String memo, String createdBy) {
+    private UserAccount(String userId, String userPassword, String email, String nickname, String age, String createdBy) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.email = email;
         this.nickname = nickname;
-        this.memo = memo;
+        this.age = age;
         this.createdBy = createdBy;
         this.modifiedBy = createdBy;
     }
