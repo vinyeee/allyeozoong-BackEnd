@@ -1,8 +1,9 @@
-package com.fastcampus.projectboard.service;
+package Hungry.PatientAnalystic.service;
 
-import com.fastcampus.projectboard.domain.UserAccount;
-import com.fastcampus.projectboard.dto.UserAccountDto;
-import com.fastcampus.projectboard.repository.UserAccountRepository;
+
+import Hungry.PatientAnalystic.domain.UserAccount;
+import Hungry.PatientAnalystic.dto.UserAccountDto;
+import Hungry.PatientAnalystic.repository.UserAccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
