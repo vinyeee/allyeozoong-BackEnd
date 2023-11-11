@@ -8,32 +8,46 @@ import lombok.Setter;
 @Setter
 public class PatientDto {
 
-    private String name; // 이름
+    private String name;
 
-    private int age; // 나이
+    private String age;
 
     private String symptom; // 증상
 
     private int lisk; // 위험도
 
-    public PatientDto(String name, int age, String symptom, int lisk) {
+    public PatientDto(String name, String age, String symptom, int lisk) {
         this.name = name;
         this.age = age;
         this.symptom = symptom;
         this.lisk = lisk;
     }
 
-    public PatientDto() {
+    public PatientDto(Patient patient) {
+        this.name = patient.getUserAccount().getNickname();
+        this.age = patient.getUserAccount().getAge();
+        this.symptom = patient.getSymptom();
+        this.lisk = patient.getLisk();
     }
 
-    public PatientDto(String name, int age, String symptom) {
-        this.name = name;
-        this.age = age;
-        this.symptom = symptom;
+    public static PatientDto of(String name, String age, String symptom, int lisk) {
+        return new PatientDto(name, age, symptom, lisk);
     }
 
-    public static PatientDto fromEntity(Patient patient){
-        return new PatientDto(patient.getName(), patient.getAge(), patient.getSymptom(), patient.getLisk());
+    public static PatientDto of(Patient patient) {
+        return new PatientDto(patient);
     }
 
+    public Patient toEntity() {
+        return new Patient(null, null, symptom, lisk);
+    }
+
+    public static PatientDto from(Patient entity) {
+        return new PatientDto(
+                entity.getUserAccount().getNickname(),
+                entity.getUserAccount().getAge(),
+                entity.getSymptom(),
+                entity.getLisk()
+        );
+    }
 }
