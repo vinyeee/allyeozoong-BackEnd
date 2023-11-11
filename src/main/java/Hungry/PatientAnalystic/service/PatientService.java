@@ -2,15 +2,14 @@ package Hungry.PatientAnalystic.service;
 
 import Hungry.PatientAnalystic.dto.Frequency;
 import Hungry.PatientAnalystic.dto.GroupAges;
-import Hungry.PatientAnalystic.dto.PatientDTO;
+import Hungry.PatientAnalystic.dto.PatientDto;
 import Hungry.PatientAnalystic.entity.Patient;
 import Hungry.PatientAnalystic.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +18,7 @@ public class PatientService {
     private final PatientRepository patientRepository;
 
 
-    public void create(PatientDTO dto){
+    public void create(PatientDto dto){
 
         Patient patient = new Patient();
 
@@ -75,6 +74,10 @@ public class PatientService {
 //        }
 
         return groupAges;
+    }
+
+    public List<PatientDto> findAllByName(String name){
+        return patientRepository.findAllByName(name).stream().map(PatientDto::fromEntity).collect(Collectors.toList());
     }
 
 

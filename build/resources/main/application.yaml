@@ -1,6 +1,18 @@
 debug: false
 management.endpoints.web.exposure.include: "*"
 
+server:
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-store-password: hungry1234
+    key-alias: tomcat
+    http2:
+      enabled: true
+  error:
+    include-message: always
+    include-stacktrace: never
+
 logging:
   level:
     com.fastcampus.projectboard: debug
@@ -14,7 +26,7 @@ spring:
   jpa:
     open-in-view: false
     ## defer-datasource-initialization: false sql.init ??? ???
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
     show-sql: true
     properties:
       dialect: org.hibernate.dialect.MySQL5InnoDBDialect
