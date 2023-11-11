@@ -1,10 +1,10 @@
-package com.fastcampus.projectboard.repository;
+package Hungry.PatientAnalystic.repository;
 
-import com.fastcampus.projectboard.domain.UserAccount;
-import com.fastcampus.projectboard.domain.projection.UserAccountProjection;
+import Hungry.PatientAnalystic.domain.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(excerptProjection = UserAccountProjection.class)
+@Repository
 public interface UserAccountRepository extends JpaRepository<UserAccount, String> {
 }
