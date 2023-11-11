@@ -20,7 +20,7 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/hungry?useUnicode=true&characterEncoding=utf8mb4
+    url: jdbc:mariadb://118.67.130.213:3306/hungry?useUnicode=true&characterEncoding=utf8mb4
     username: root
     password: root
   jpa:

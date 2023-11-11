@@ -76,4 +76,11 @@ public class PatientController {
         List<PatientDto> patientDtoList = patientService.findAllByName(userNameDto.id());
         return patientDtoList;
     }
+
+    @CrossOrigin
+    @GetMapping("/test")
+    @ResponseBody
+    public String test(){
+        return "test";
+    }
 }
