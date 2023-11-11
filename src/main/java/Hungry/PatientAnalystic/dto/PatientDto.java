@@ -1,6 +1,6 @@
 package Hungry.PatientAnalystic.dto;
 
-import Hungry.PatientAnalystic.entity.Patient;
+import Hungry.PatientAnalystic.domain.Patient;
 import lombok.Getter;
 import lombok.Setter;
 

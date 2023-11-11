@@ -1,4 +1,4 @@
-package Hungry.PatientAnalystic.entity;
+package Hungry.PatientAnalystic.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

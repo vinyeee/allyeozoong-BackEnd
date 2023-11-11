@@ -3,7 +3,7 @@ package Hungry.PatientAnalystic.service;
 import Hungry.PatientAnalystic.dto.Frequency;
 import Hungry.PatientAnalystic.dto.GroupAges;
 import Hungry.PatientAnalystic.dto.PatientDto;
-import Hungry.PatientAnalystic.entity.Patient;
+import Hungry.PatientAnalystic.domain.Patient;
 import Hungry.PatientAnalystic.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

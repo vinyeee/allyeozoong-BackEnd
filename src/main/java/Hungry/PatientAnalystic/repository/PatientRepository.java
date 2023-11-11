@@ -2,10 +2,9 @@ package Hungry.PatientAnalystic.repository;
 
 import Hungry.PatientAnalystic.dto.Frequency;
 import Hungry.PatientAnalystic.dto.GroupAges;
-import Hungry.PatientAnalystic.entity.Patient;
+import Hungry.PatientAnalystic.domain.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
