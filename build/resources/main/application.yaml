@@ -32,5 +32,8 @@ spring:
       dialect: org.hibernate.dialect.MySQL5InnoDBDialect
       connection.characterEncoding: utf8mb4
       connection.useUnicode: true
+#      hibernate:
+#        ejb:
+#          use_class_enhancer=true:
 
 

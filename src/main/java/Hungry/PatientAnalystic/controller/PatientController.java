@@ -40,7 +40,7 @@ public class PatientController {
 
     @CrossOrigin
     @PostMapping("/getFrequencyAndAges")
-    public ResponseEntity<Map<String, Object>> getFrequencyAndAges (@RequestParam("lisk") int lisk, @RequestParam("symptom") String symptom, @RequestParam("age") int age){
+    public ResponseEntity<Map<String, Object>> getFrequencyAndAges (@RequestParam("risk") int risk, @RequestParam("symptom") String symptom, @RequestParam("age") int age){
 
         System.out.println(symptom);
         System.out.println(age);
@@ -49,7 +49,7 @@ public class PatientController {
         patientDTO.setName("user");
         patientDTO.setAge(age);
         patientDTO.setSymptom(symptom);
-        patientDTO.setLisk(lisk);
+        patientDTO.setLisk(risk);
 
         patientService.create(patientDTO); // db에 저장
 
