@@ -1,6 +1,6 @@
-package com.fastcampus.projectboard.dto.security;
+package Hungry.PatientAnalystic.dto.security;
 
-import com.fastcampus.projectboard.dto.UserAccountDto;
+import Hungry.PatientAnalystic.dto.UserAccountDto;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public record BoardPrincipal(
+public record UserPrincipal(
         String username,
         String password,
         Collection<? extends GrantedAuthority> authorities,
@@ -22,15 +22,15 @@ public record BoardPrincipal(
         Map<String, Object> oAuth2Attributes
 ) implements UserDetails, OAuth2User {
 
-    public static BoardPrincipal of(String username, String password, String email, String nickname, String memo) {
-        return BoardPrincipal.of(username, password, email, nickname, memo, Map.of());
+    public static UserPrincipal of(String username, String password, String email, String nickname, String memo) {
+        return UserPrincipal.of(username, password, email, nickname, memo, Map.of());
     }
 
-    public static BoardPrincipal of(String username, String password, String email, String nickname, String memo, Map<String, Object> oAuth2Attributes) {
+    public static UserPrincipal of(String username, String password, String email, String nickname, String memo, Map<String, Object> oAuth2Attributes) {
         // 지금은 인증만 하고 권한을 다루고 있지 않아서 임의로 세팅한다.
         Set<RoleType> roleTypes = Set.of(RoleType.USER);
 
-        return new BoardPrincipal(
+        return new UserPrincipal(
                 username,
                 password,
                 roleTypes.stream()
@@ -45,13 +45,13 @@ public record BoardPrincipal(
         );
     }
 
-    public static BoardPrincipal from(UserAccountDto dto) {
-        return BoardPrincipal.of(
+    public static UserPrincipal from(UserAccountDto dto) {
+        return UserPrincipal.of(
                 dto.userId(),
                 dto.userPassword(),
                 dto.email(),
                 dto.nickname(),
-                dto.memo()
+                dto.age()
         );
     }
 
